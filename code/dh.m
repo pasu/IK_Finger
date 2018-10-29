@@ -1,0 +1,13 @@
+% forward kinematic
+% Denavit-Hartenberg
+syms dRadian1 dRadian2 dRadian3 dDistance1 dDistance2 dDistance3
+f1 =  cos(dRadian1 + dRadian2 + dRadian3) * dDistance3 ...
+    + cos(dRadian1 + dRadian2) * dDistance2 ...
+    + cos(dRadian1) * dDistance1;
+
+f2 =  sin(dRadian1 + dRadian2 + dRadian3) * dDistance3 ...
+    + sin(dRadian1 + dRadian2) * dDistance2 ...
+    + sin(dRadian1) * dDistance1;
+
+t1 = [cos(dRadian1) -sin(dRadian1) cos(dRadian1) * dDistance1; sin(dRadian1) cos(dRadian1) sin(dRadian1) * dDistance1; 0 0 1];
+t1V = inv(t1);
